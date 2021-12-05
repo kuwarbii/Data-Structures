@@ -7,7 +7,7 @@ struct Node{
     Node* right;
     Node(int val):val(val), left(nullptr), right(nullptr){};
 };
-void rpretrav(Node *node){
+void recursive(Node *node){
     if(node == NULL){
         return;
     }
@@ -16,7 +16,7 @@ void rpretrav(Node *node){
     rpretrav(node->right);
 }
 
-void ipretrav(Node* node){
+void iterative(Node* node){
     stack<Node*> st;
     st.push(node);
     while(!st.empty()){
@@ -28,7 +28,7 @@ void ipretrav(Node* node){
     }
 }
 
-void ipretrav2(Node* node){
+void iterrative2(Node* node){
     stack<Node*> st;
     while(true){
         if(node){
@@ -54,9 +54,9 @@ int main(){
     root->right = new Node(3);
     root->right->left = new Node(6);
     root->right->right = new Node(7);
-    rpretrav(root);
+    recursive(root);
     cout << endl;
-    ipretrav(root);
+    iterative(root);
     cout << endl;
-    ipretrav2(root);
+    iterative2(root);
 }
