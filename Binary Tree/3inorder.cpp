@@ -7,7 +7,7 @@ struct Node{
     Node* right = nullptr;
     Node(int val):val(val){};
 };
-void rinord(Node* node){
+void recursive(Node* node){
     if(node == nullptr){
         return;
     }
@@ -16,7 +16,7 @@ void rinord(Node* node){
     rinord(node->right);
 }
 
-void iinord(Node* nodee){
+void iterative(Node* nodee){
     stack<Node*> st;
     Node* node = nodee;
     while(true){
@@ -44,7 +44,7 @@ int main(){
     root->right = new Node(3);
     root->right->left = new Node(6);
     root->right->right = new Node(7);
-    rinord(root);
+    recursive(root);
     cout << '\n';
-    iinord(root);
+    iterative(root);
 }
